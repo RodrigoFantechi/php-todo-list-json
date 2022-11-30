@@ -2,7 +2,7 @@
 
 
 $tasks = file_get_contents('tasks.json');
-$all_tasks = json_decode($tasks);
+$all_tasks = json_decode($tasks,true);
 
 
 if (isset($_POST['task'])) {
@@ -26,8 +26,9 @@ if (isset($_POST['task'])) {
 
 }elseif (isset($_POST['changeDone'])){
 
-    $appoggio = $_POST['changeDone'];
-    $all_tasks[$appoggio]['changeDone'] = true;
+    $changeDone = $_POST['changeDone'];
+    $all_tasks[$changeDone]["done"] = !$all_tasks[$changeDone]["done"];
+
 
     $json_tasks = json_encode($all_tasks);
     file_put_contents('tasks.json', $json_tasks);
