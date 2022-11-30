@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+ #site_body {
+    background-color: #001632;
+}
+.container{
+    height: 100vh;
+}
+h1{
+    color: #6D767E;
+}
+.my_card{
+    background-color: #ffffff;
+    
+}
+.delete{
+    width: 40px;
+    height: 40px;
+}
+.my_card  .list:not(:nth-child(1)){
+    border-top: 1px solid gray;
+}
