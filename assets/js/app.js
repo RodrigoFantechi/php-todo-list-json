@@ -5,7 +5,10 @@ createApp({
         return {
             tasks: [],
             api_url: 'server.php',
-            task: '',
+            task: {
+                text: null,
+                done: false
+            },
         }
     },
     methods: {
@@ -19,7 +22,7 @@ createApp({
         },
         addTask() {
             const data = {
-                task : this.task,
+                task : this.task.text,
               }
 
             axios
@@ -35,7 +38,6 @@ createApp({
         },
         removeTask(index) {
             const data = {
-                task : this.task,
                 indice : index,
               }
 
@@ -50,7 +52,21 @@ createApp({
                 console.log(err.message);
             })
         },
+        toogle(index){
+            const data = {
+                toogle : index,
+              }
+            axios
+            .post(this.api_url, data,{
+                headers: {'Content-Type': 'multipart/form-data'}
+            })
+            .then((response) => {
+                this.tasks = response.data
 
+            }).catch(err => {
+                console.log(err.message);
+            })
+        }
 
     },
     mounted() {

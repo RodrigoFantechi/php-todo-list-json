@@ -24,3 +24,6 @@ h1{
 .my_card  .list:not(:nth-child(1)){
     border-top: 1px solid gray;
 }
+.underline{
+    text-decoration: line-through;
+}

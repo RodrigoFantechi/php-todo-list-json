@@ -21,19 +21,16 @@
                 <h1 class="text-center">Todo List</h1>
                 <div class="my_card w-100 m-auto rounded mb-3">
                     <div class="d-flex p-3 list justify-content-between" v-for="(task, index) in tasks">
-                        <p class="">{{task}}</p>
+                        <p @click="toogle(index)" :class=" task.done ? 'underline' : ''">{{task.text}}</p>
                         <div class="delete rounded bg-danger text-light d-flex justify-content-center align-items-center" @click="removeTask(index)"><i class="fa-solid fa-trash"></i></div>
                     </div>
                 </div>
-                    <div class="input-group">
-                        <input type="text" name="task"  class="form-control p-2" placeholder="Inserire tasks" v-model="task" @keyup.enter="addTask">
-                        <button type="submit" class="btn btn-outline-secondary p-2" @click="addTask">inserisci</button>
-                    </div>
-                
+                <div class="input-group">
+                    <input type="text" name="task" class="form-control p-2" placeholder="Inserire tasks" v-model="task.text" @keyup.enter="addTask">
+                    <button type="submit" class="btn btn-outline-secondary p-2" @click="addTask">inserisci</button>
+                </div>
             </div>
         </div>
-
-
     </div>
 
 
