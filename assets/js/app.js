@@ -22,52 +22,53 @@ createApp({
         },
         addTask() {
             const data = {
-                task : this.task.text,
-              }
+                task: this.task.text,
+            }
 
             axios
-            .post(this.api_url, data,{
-                headers: {'Content-Type': 'multipart/form-data'}
-            })
-            .then((response) => {
-                this.tasks = response.data
+                .post(this.api_url, data, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                .then((response) => {
+                    this.tasks = response.data
 
-            }).catch(err => {
-                console.log(err.message);
-            })
+                }).catch(err => {
+                    console.log(err.message);
+                })
         },
         removeTask(index) {
             const data = {
-                indice : index,
-              }
+                indice: index,
+            }
 
             axios
-            .post(this.api_url, data,{
-                headers: {'Content-Type': 'multipart/form-data'}
-            })
-            .then((response) => {
-                this.tasks = response.data
+                .post(this.api_url, data, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                .then((response) => {
+                    this.tasks = response.data
 
-            }).catch(err => {
-                console.log(err.message);
-            })
+                }).catch(err => {
+                    console.log(err.message);
+                })
         },
-        toogle(index){
+        changeDone(index){
             const data = {
-                toogle : index,
-              }
+                changeDone: index,
+            }
+
             axios
-            .post(this.api_url, data,{
-                headers: {'Content-Type': 'multipart/form-data'}
-            })
-            .then((response) => {
-                this.tasks = response.data
+                .post(this.api_url, data, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                .then((response) => {
+                    this.tasks = response.data
 
-            }).catch(err => {
-                console.log(err.message);
-            })
+                }).catch(err => {
+                    console.log(err.message);
+                })
         }
-
+        
     },
     mounted() {
         this.readTasks(this.api_url)

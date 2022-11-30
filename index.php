@@ -21,7 +21,9 @@
                 <h1 class="text-center">Todo List</h1>
                 <div class="my_card w-100 m-auto rounded mb-3">
                     <div class="d-flex p-3 list justify-content-between" v-for="(task, index) in tasks">
-                        <p @click="toogle(index)" :class=" task.done ? 'underline' : ''">{{task.text}}</p>
+
+                        <p  @click="changeDone(index)" :class=" task.done ? 'underline' : ''">{{task.text}}</p>
+
                         <div class="delete rounded bg-danger text-light d-flex justify-content-center align-items-center" @click="removeTask(index)"><i class="fa-solid fa-trash"></i></div>
                     </div>
                 </div>

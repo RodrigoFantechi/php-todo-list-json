@@ -12,20 +12,22 @@ if (isset($_POST['task'])) {
         'done' => false,
     ];
     array_push($all_tasks, $task);
+
     $json_tasks = json_encode($all_tasks);
     file_put_contents('tasks.json', $json_tasks);
 
-} elseif (isset($_POST['indice'])) {
+}elseif (isset($_POST['indice'])) {
 
     $index = $_POST['indice'];
     array_splice($all_tasks, $index, 1);
+
     $json_tasks = json_encode($all_tasks);
     file_put_contents('tasks.json', $json_tasks);
 
-} elseif (isset($_POST['toogle'])){
+}elseif (isset($_POST['changeDone'])){
 
-    $appoggio = $_POST['toogle'];
-    $all_tasks[$appoggio][1] = !$all_tasks[$appoggio][1];
+    $appoggio = $_POST['changeDone'];
+    $all_tasks[$appoggio]['changeDone'] = true;
 
     $json_tasks = json_encode($all_tasks);
     file_put_contents('tasks.json', $json_tasks);
