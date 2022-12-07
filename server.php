@@ -5,7 +5,7 @@ $tasks = file_get_contents('tasks.json');
 $all_tasks = json_decode($tasks,true);
 
 
-if (isset($_POST['task'])) {
+if (isset($_POST['task']) && !empty($_POST['task'])) {
 
     $task = [
         'text' => $_POST['task'],

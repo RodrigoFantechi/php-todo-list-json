@@ -5,10 +5,7 @@ createApp({
         return {
             tasks: [],
             api_url: 'server.php',
-            task: {
-                text: null,
-                done: false
-            },
+            newTask: '',
         }
     },
     methods: {
@@ -22,7 +19,7 @@ createApp({
         },
         addTask() {
             const data = {
-                task: this.task.text,
+                task: this.newTask,
             }
 
             axios
@@ -31,6 +28,7 @@ createApp({
                 })
                 .then((response) => {
                     this.tasks = response.data
+                    this.newTask = ''
 
                 }).catch(err => {
                     console.log(err.message);
@@ -52,7 +50,7 @@ createApp({
                     console.log(err.message);
                 })
         },
-        changeDone(index){
+        changeDone(index) {
             const data = {
                 changeDone: index,
             }
@@ -68,7 +66,7 @@ createApp({
                     console.log(err.message);
                 })
         }
-        
+
     },
     mounted() {
         this.readTasks(this.api_url)

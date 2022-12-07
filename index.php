@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="input-group">
-                    <input type="text" name="task" class="form-control p-2" placeholder="Inserire tasks" v-model="task.text" @keyup.enter="addTask">
+                    <input type="text" class="form-control p-2" placeholder="Inserire tasks" v-model="newTask" @keyup.enter="addTask">
                     <button type="submit" class="btn btn-outline-secondary p-2" @click="addTask">inserisci</button>
                 </div>
             </div>
